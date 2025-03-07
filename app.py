@@ -1,10 +1,9 @@
 import gradio as gr
 from transformers import pipeline
 
-# Load your fine-tuned model
 generator = pipeline(
     "text-generation",
-    model="./my_ai_model",  # Path to your model
+    model="./my_ai_model",  # Path to the model
     tokenizer="./my_ai_model",
 )
 
@@ -19,5 +18,5 @@ def respond(message, history):
     )[0]["generated_text"]
     return response.split("Bot:")[1].strip()
 
-# Launch the Gradio app
+
 gr.ChatInterface(respond).launch()
